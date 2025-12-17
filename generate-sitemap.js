@@ -7,74 +7,54 @@ const BLOG_HANDLE = 'films-et-cinematiques-de-jeux-videos';
 const OUTPUT_FILE = 'sitemap-videos.xml';
 
 console.log('🚀 Génération du sitemap vidéo...');
+console.log('📡 Token présent:', ADMIN_TOKEN ? 'Oui' : 'Non');
 
 async function fetchVideos() {
   console.log('📡 Récupération des vidéos depuis Shopify Admin API...');
   
-  // D'abord, récupérer la définition du métaobjet
-  const definitionQuery = `{
-    metaobjectDefinitions(first: 10) {
-      nodes {
-        id
-        type
-        name
-      }
-    }
-  }`;
-  
-  let response = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/graphql.json`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Access-Token': ADMIN_TOKEN
-    },
-    body: JSON.stringify({ query: definitionQuery })
-  });
-
-  let data = await response.json();
-  
-  if (data.errors) {
-    console.error('❌ Erreur GraphQL (définitions):', JSON.stringify(data.errors, null, 2));
-    throw new Error('Erreur lors de la récupération des définitions');
-  }
-  
-  console.log('📋 Définitions trouvées:', JSON.stringify(data.data.metaobjectDefinitions.nodes, null, 2));
-  
-  // Ensuite, récupérer les métaobjets
-  const metaobjectsQuery = `{
-    metaobjects(type: "video_youtube", first: 250) {
-      nodes {
-        id
-        handle
-        fields {
-          key
-          value
+  // Requête simplifiée - juste les métaobjets
+  const query = `
+    query {
+      metaobjects(type: "video_youtube", first: 250) {
+        nodes {
+          id
+          handle
+          fields {
+            key
+            value
+          }
         }
       }
     }
-  }`;
+  `;
   
-  response = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/graphql.json`, {
+  console.log('🔍 Envoi de la requête GraphQL...');
+  
+  const response = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/graphql.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'X-Shopify-Access-Token': ADMIN_TOKEN
     },
-    body: JSON.stringify({ query: metaobjectsQuery })
+    body: JSON.stringify({ query })
   });
 
-  data = await response.json();
+  console.log('📥 Statut de la réponse:', response.status, response.statusText);
+
+  const data = await response.json();
   
   if (data.errors) {
-    console.error('❌ Erreur GraphQL (métaobjets):', JSON.stringify(data.errors, null, 2));
+    console.error('❌ Erreur GraphQL:', JSON.stringify(data.errors, null, 2));
+    console.error('📄 Réponse complète:', JSON.stringify(data, null, 2));
     throw new Error('Erreur lors de la récupération des vidéos');
   }
 
   if (!data.data || !data.data.metaobjects) {
-    console.error('❌ Réponse invalide:', JSON.stringify(data, null, 2));
+    console.error('❌ Structure de réponse invalide:', JSON.stringify(data, null, 2));
     throw new Error('Réponse API invalide');
   }
 
+  console.log(`✅ ${data.data.metaobjects.nodes.length} métaobjets trouvés`);
   return data.data.metaobjects.nodes;
 }
 
@@ -156,24 +136,22 @@ function generateSitemap(videos) {
 async function main() {
   try {
     const nodes = await fetchVideos();
-    console.log(`✅ ${nodes.length} métaobjets récupérés`);
-
     const videos = nodes.map(parseMetaobject).filter(v => v.id_video);
-    console.log(`✅ ${videos.length} vidéos valides trouvées`);
+    console.log(`✅ ${videos.length} vidéos valides avec id_video`);
+
+    if (videos.length === 0) {
+      console.warn('⚠️ Aucune vidéo valide trouvée!');
+      console.log('📋 Premier métaobjet (debug):', JSON.stringify(nodes[0], null, 2));
+    }
 
     const xml = generateSitemap(videos);
     fs.writeFileSync(OUTPUT_FILE, xml, 'utf8');
     console.log(`✅ Sitemap généré : ${OUTPUT_FILE}`);
     console.log(`📊 Taille : ${(xml.length / 1024).toFixed(2)} KB`);
     
-    if (xml.includes('<?xml') && xml.includes('</urlset>')) {
-      console.log('✅ XML valide');
-    } else {
-      throw new Error('XML invalide');
-    }
-
   } catch (error) {
     console.error('❌ Erreur:', error.message);
+    console.error('Stack:', error.stack);
     process.exit(1);
   }
 }
