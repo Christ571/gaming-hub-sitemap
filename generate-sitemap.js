@@ -1,7 +1,6 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-// Configuration
 const SHOPIFY_DOMAIN = 'gaming-hub.myshopify.com';
 const ADMIN_TOKEN = process.env.SHOPIFY_TOKEN;
 const BLOG_HANDLE = 'films-et-cinematiques-de-jeux-videos';
@@ -9,37 +8,71 @@ const OUTPUT_FILE = 'sitemap-videos.xml';
 
 console.log('🚀 Génération du sitemap vidéo...');
 
-// Requête GraphQL Admin API
-const query = `{
-  metaobjects(type: "video_youtube", first: 250) {
-    nodes {
-      id
-      handle
-      fields {
-        key
-        value
-      }
-    }
-  }
-}`;
-
 async function fetchVideos() {
   console.log('📡 Récupération des vidéos depuis Shopify Admin API...');
   
-  const response = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/graphql.json`, {
+  // D'abord, récupérer la définition du métaobjet
+  const definitionQuery = `{
+    metaobjectDefinitions(first: 10) {
+      nodes {
+        id
+        type
+        name
+      }
+    }
+  }`;
+  
+  let response = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/graphql.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'X-Shopify-Access-Token': ADMIN_TOKEN
     },
-    body: JSON.stringify({ query })
+    body: JSON.stringify({ query: definitionQuery })
   });
 
-  const data = await response.json();
+  let data = await response.json();
   
   if (data.errors) {
-    console.error('❌ Erreur GraphQL:', JSON.stringify(data.errors, null, 2));
+    console.error('❌ Erreur GraphQL (définitions):', JSON.stringify(data.errors, null, 2));
+    throw new Error('Erreur lors de la récupération des définitions');
+  }
+  
+  console.log('📋 Définitions trouvées:', JSON.stringify(data.data.metaobjectDefinitions.nodes, null, 2));
+  
+  // Ensuite, récupérer les métaobjets
+  const metaobjectsQuery = `{
+    metaobjects(type: "video_youtube", first: 250) {
+      nodes {
+        id
+        handle
+        fields {
+          key
+          value
+        }
+      }
+    }
+  }`;
+  
+  response = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/graphql.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Shopify-Access-Token': ADMIN_TOKEN
+    },
+    body: JSON.stringify({ query: metaobjectsQuery })
+  });
+
+  data = await response.json();
+  
+  if (data.errors) {
+    console.error('❌ Erreur GraphQL (métaobjets):', JSON.stringify(data.errors, null, 2));
     throw new Error('Erreur lors de la récupération des vidéos');
+  }
+
+  if (!data.data || !data.data.metaobjects) {
+    console.error('❌ Réponse invalide:', JSON.stringify(data, null, 2));
+    throw new Error('Réponse API invalide');
   }
 
   return data.data.metaobjects.nodes;
@@ -55,15 +88,9 @@ function parseMetaobject(node) {
 
 function convertDurationToSeconds(duration) {
   if (!duration) return 0;
-  
   const parts = duration.split(':').map(p => parseInt(p, 10));
-  
-  if (parts.length === 3) {
-    return parts[0] * 3600 + parts[1] * 60 + parts[2];
-  } else if (parts.length === 2) {
-    return parts[0] * 60 + parts[1];
-  }
-  
+  if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  if (parts.length === 2) return parts[0] * 60 + parts[1];
   return 0;
 }
 
@@ -110,9 +137,7 @@ function generateSitemap(videos) {
       <video:player_loc>${playerUrl}</video:player_loc>
 `;
 
-    if (duration > 0) {
-      xml += `      <video:duration>${duration}</video:duration>\n`;
-    }
+    if (duration > 0) xml += `      <video:duration>${duration}</video:duration>\n`;
 
     xml += `      <video:publication_date>${pubDate}</video:publication_date>
       <video:tag>${tag}</video:tag>
