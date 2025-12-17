@@ -2,55 +2,62 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 
 const SHOPIFY_DOMAIN = 'gaming-hub.myshopify.com';
-const ADMIN_TOKEN = process.env.SHOPIFY_TOKEN;
+const STOREFRONT_TOKEN = process.env.SHOPIFY_TOKEN;
 const BLOG_HANDLE = 'films-et-cinematiques-de-jeux-videos';
 const OUTPUT_FILE = 'sitemap-videos.xml';
 
 console.log('🚀 Génération du sitemap vidéo...');
-console.log('📡 Token présent:', ADMIN_TOKEN ? 'Oui' : 'Non');
+console.log('🏪 Domaine:', SHOPIFY_DOMAIN);
+console.log('🔑 Token présent:', STOREFRONT_TOKEN ? 'Oui' : 'Non');
 
 async function fetchVideos() {
-  console.log('📡 Récupération des vidéos depuis Shopify Admin API...');
+  console.log('📡 Récupération des vidéos depuis Shopify Storefront API...');
   
-  // Requête simplifiée - juste les métaobjets
-  const query = `
-    query {
-      metaobjects(type: "video_youtube", first: 250) {
-        nodes {
-          id
-          handle
-          fields {
-            key
-            value
-          }
+  const query = `{
+    metaobjects(type: "video_youtube", first: 250) {
+      nodes {
+        id
+        handle
+        fields {
+          key
+          value
         }
       }
     }
-  `;
+  }`;
   
-  console.log('🔍 Envoi de la requête GraphQL...');
+  const url = `https://${SHOPIFY_DOMAIN}/api/2023-10/graphql.json`;
+  console.log('🔗 URL:', url);
   
-  const response = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/graphql.json`, {
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Shopify-Access-Token': ADMIN_TOKEN
+      'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN
     },
     body: JSON.stringify({ query })
   });
 
-  console.log('📥 Statut de la réponse:', response.status, response.statusText);
+  console.log('📥 Statut HTTP:', response.status, response.statusText);
 
-  const data = await response.json();
+  const text = await response.text();
+  console.log('📄 Réponse (premiers 500 chars):', text.substring(0, 500));
+
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch (e) {
+    console.error('❌ Impossible de parser la réponse JSON');
+    throw new Error('Réponse non-JSON reçue');
+  }
   
   if (data.errors) {
     console.error('❌ Erreur GraphQL:', JSON.stringify(data.errors, null, 2));
-    console.error('📄 Réponse complète:', JSON.stringify(data, null, 2));
     throw new Error('Erreur lors de la récupération des vidéos');
   }
 
   if (!data.data || !data.data.metaobjects) {
-    console.error('❌ Structure de réponse invalide:', JSON.stringify(data, null, 2));
+    console.error('❌ Structure de réponse invalide');
     throw new Error('Réponse API invalide');
   }
 
@@ -140,8 +147,8 @@ async function main() {
     console.log(`✅ ${videos.length} vidéos valides avec id_video`);
 
     if (videos.length === 0) {
-      console.warn('⚠️ Aucune vidéo valide trouvée!');
-      console.log('📋 Premier métaobjet (debug):', JSON.stringify(nodes[0], null, 2));
+      console.warn('⚠️ Aucune vidéo valide trouvée');
+      console.log('Premier nœud (debug):', JSON.stringify(nodes[0], null, 2));
     }
 
     const xml = generateSitemap(videos);
@@ -151,7 +158,6 @@ async function main() {
     
   } catch (error) {
     console.error('❌ Erreur:', error.message);
-    console.error('Stack:', error.stack);
     process.exit(1);
   }
 }
