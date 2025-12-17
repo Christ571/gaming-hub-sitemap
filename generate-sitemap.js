@@ -1,11 +1,11 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-const SHOPIFY_DOMAIN = 'gaming-hub.myshopify.com';
+const SHOPIFY_DOMAIN = 'gaming-hub.fr';  // 👈 DOMAINE PERSONNALISÉ
 const STOREFRONT_TOKEN = process.env.SHOPIFY_TOKEN;
 const BLOG_HANDLE = 'films-et-cinematiques-de-jeux-videos';
 const OUTPUT_FILE = 'sitemap-videos.xml';
-const API_VERSION = '2022-10'; // 👈 MÊME VERSION QUE VOTRE THÈME
+const API_VERSION = '2022-10';
 
 console.log('🚀 Génération du sitemap vidéo...');
 console.log('🏪 Domaine:', SHOPIFY_DOMAIN);
