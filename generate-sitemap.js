@@ -5,10 +5,12 @@ const SHOPIFY_DOMAIN = 'gaming-hub.myshopify.com';
 const STOREFRONT_TOKEN = process.env.SHOPIFY_TOKEN;
 const BLOG_HANDLE = 'films-et-cinematiques-de-jeux-videos';
 const OUTPUT_FILE = 'sitemap-videos.xml';
+const API_VERSION = '2022-10'; // 👈 MÊME VERSION QUE VOTRE THÈME
 
 console.log('🚀 Génération du sitemap vidéo...');
 console.log('🏪 Domaine:', SHOPIFY_DOMAIN);
 console.log('🔑 Token présent:', STOREFRONT_TOKEN ? 'Oui' : 'Non');
+console.log('📍 API Version:', API_VERSION);
 
 async function fetchVideos() {
   console.log('📡 Récupération des vidéos depuis Shopify Storefront API...');
@@ -26,7 +28,7 @@ async function fetchVideos() {
     }
   }`;
   
-  const url = `https://${SHOPIFY_DOMAIN}/api/2023-10/graphql.json`;
+  const url = `https://${SHOPIFY_DOMAIN}/api/${API_VERSION}/graphql.json`;
   console.log('🔗 URL:', url);
   
   const response = await fetch(url, {
