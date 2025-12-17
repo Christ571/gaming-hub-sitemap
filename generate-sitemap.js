@@ -3,13 +3,13 @@ import fs from 'fs';
 
 // Configuration
 const SHOPIFY_DOMAIN = 'gaming-hub.myshopify.com';
-const STOREFRONT_TOKEN = process.env.SHOPIFY_TOKEN || '82676b1f0aec5f53aa2ce9e7e0a479e8';
+const ADMIN_TOKEN = process.env.SHOPIFY_TOKEN;
 const BLOG_HANDLE = 'films-et-cinematiques-de-jeux-videos';
 const OUTPUT_FILE = 'sitemap-videos.xml';
 
 console.log('🚀 Génération du sitemap vidéo...');
 
-// Requête GraphQL pour récupérer toutes les vidéos
+// Requête GraphQL Admin API
 const query = `{
   metaobjects(type: "video_youtube", first: 250) {
     nodes {
@@ -24,13 +24,13 @@ const query = `{
 }`;
 
 async function fetchVideos() {
-  console.log('📡 Récupération des vidéos depuis Shopify GraphQL...');
+  console.log('📡 Récupération des vidéos depuis Shopify Admin API...');
   
-  const response = await fetch(`https://${SHOPIFY_DOMAIN}/api/2023-10/graphql.json`, {
+  const response = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/graphql.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN
+      'X-Shopify-Access-Token': ADMIN_TOKEN
     },
     body: JSON.stringify({ query })
   });
@@ -38,7 +38,7 @@ async function fetchVideos() {
   const data = await response.json();
   
   if (data.errors) {
-    console.error('❌ Erreur GraphQL:', data.errors);
+    console.error('❌ Erreur GraphQL:', JSON.stringify(data.errors, null, 2));
     throw new Error('Erreur lors de la récupération des vidéos');
   }
 
@@ -59,10 +59,8 @@ function convertDurationToSeconds(duration) {
   const parts = duration.split(':').map(p => parseInt(p, 10));
   
   if (parts.length === 3) {
-    // HH:MM:SS
     return parts[0] * 3600 + parts[1] * 60 + parts[2];
   } else if (parts.length === 2) {
-    // MM:SS
     return parts[0] * 60 + parts[1];
   }
   
@@ -132,23 +130,17 @@ function generateSitemap(videos) {
 
 async function main() {
   try {
-    // Récupérer les vidéos
     const nodes = await fetchVideos();
     console.log(`✅ ${nodes.length} métaobjets récupérés`);
 
-    // Parser les vidéos
     const videos = nodes.map(parseMetaobject).filter(v => v.id_video);
     console.log(`✅ ${videos.length} vidéos valides trouvées`);
 
-    // Générer le XML
     const xml = generateSitemap(videos);
-
-    // Écrire le fichier
     fs.writeFileSync(OUTPUT_FILE, xml, 'utf8');
     console.log(`✅ Sitemap généré : ${OUTPUT_FILE}`);
     console.log(`📊 Taille : ${(xml.length / 1024).toFixed(2)} KB`);
     
-    // Validation basique
     if (xml.includes('<?xml') && xml.includes('</urlset>')) {
       console.log('✅ XML valide');
     } else {
