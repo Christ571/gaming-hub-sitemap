@@ -2,14 +2,14 @@ name: Generate Video Sitemap
 
 on:
   schedule:
-    # Exécution automatique tous les jours à 3h du matin (UTC)
     - cron: '0 3 * * *'
-  
-  workflow_dispatch: # Permet le déclenchement manuel
-  
+  workflow_dispatch:
   push:
     branches:
       - main
+
+permissions:
+  contents: write  # 👈 Ajoute les permissions d'écriture
 
 jobs:
   generate:
