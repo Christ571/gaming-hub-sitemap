@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "generate": "node generate-sitemap.js"
+    "generate": "node generate-sitemap.js",
+    "generate:images": "node generate-sitemap-images.js",
+    "generate:all": "npm run generate && npm run generate:images"
   },
   "dependencies": {
     "node-fetch": "^3.3.0"
