@@ -1,15 +1,15 @@
-name: Generate Video Sitemap
+name: Generate Video & Image Sitemaps
 
 on:
   schedule:
-    - cron: '0 3 * * *'
-  workflow_dispatch:
+    - cron: '0 3 * * *'  # Tous les jours à 3h du matin
+  workflow_dispatch:      # Possibilité de lancer manuellement
   push:
     branches:
       - main
 
 permissions:
-  contents: write  # 👈 Ajoute les permissions d'écriture
+  contents: write
 
 jobs:
   generate:
@@ -27,10 +27,15 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
       
-      - name: 🎬 Generate sitemap
+      - name: 🎬 Generate video sitemap
         env:
           SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
         run: npm run generate
+      
+      - name: 🖼️ Generate image sitemap
+        env:
+          SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
+        run: npm run generate:images
       
       - name: 📤 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
