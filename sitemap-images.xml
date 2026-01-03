@@ -836,7 +836,7 @@
   <url>
     <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/grand-theft-auto-6</loc>
     <image:image>
-      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Grand_Theft_Auto_6_Official_Picture_-_GamingHub_b95bd007-564f-42fa-a72f-f9c4f5478395.jpg?v=1762879808</image:loc>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Grand_Theft_Auto_6_Official_Picture_-_GamingHub_c676e6f2-f6e5-4783-b120-2c318c53062c.jpg?v=1767362447</image:loc>
       <image:title>Visuel Officiel du Jeu grand Theft Auto 6</image:title>
       <image:caption>Grand Theft Auto 6</image:caption>
     </image:image>
@@ -887,6 +887,14 @@
       <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Halo_Campaign_Evolved_GamingHub.jpg?v=1762879738</image:loc>
       <image:title>Visuel Officiel du Jeu Halo Campaign Evolved</image:title>
       <image:caption>Halo Campaign Evolved</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/phantom-blade-zero</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Phantom_Blade_Zero_Official_Picture_-_GamingHub.jpg?v=1767362785</image:loc>
+      <image:title>Visuel Officiel du Jeu Phantom Blade Zéro</image:title>
+      <image:caption>Phantom Blade Zéro</image:caption>
     </image:image>
   </url>
   <url>
@@ -1069,6 +1077,11 @@
       <image:loc>https://{"text":"Visuel Halo Campaign Evolved","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Halo_Campaign_Evolved_-_GamingHub.jpg?v=1761584975"}</image:loc>
       <image:title>Halo Campaign Evolved</image:title>
       <image:caption>Halo Campaign Evolved</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel Phantom Blade Zéro","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Phantom_Blade_Zero_-_GamingHub.jpg?v=1767360994"}</image:loc>
+      <image:title>Phantom Blade Zéro</image:title>
+      <image:caption>Phantom Blade Zéro</image:caption>
     </image:image>
   </url>
 </urlset>
