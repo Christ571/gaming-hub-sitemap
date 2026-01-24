@@ -756,9 +756,9 @@
   <url>
     <loc>https://gaming-hub.fr/blogs/films-tests-et-avis-de-jeux-video/test-critique-de-mass-effect-1-legendary-edition-la-naissance-d-une-epopee-galactique</loc>
     <image:image>
-      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Mass_Effect_1_GamingHub_0d8064c9-f42f-461d-96d9-62fd9728875b.jpg?v=1769001854</image:loc>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Mass_Effect_1_GamingHub_dda84fd9-3922-46f0-90d5-a2140c547a8b.jpg?v=1769173589</image:loc>
       <image:title>Visuel du jeu Mass Effect 1 Legendary Edition</image:title>
-      <image:caption>Test &amp; Critique de Mass Effect 1 – Legendary Edition – La naissance d’une épopée galactique</image:caption>
+      <image:caption>Test &amp; Critique de Mass Effect 1 Legendary Edition – La naissance d’une épopée galactique</image:caption>
     </image:image>
   </url>
   <url>
@@ -767,6 +767,14 @@
       <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Ryse_Son_of_Rome_GamingHub.jpg?v=1769001125</image:loc>
       <image:title>Visuel du Jeu Ryse Son of Rome</image:title>
       <image:caption>Test &amp; Critique de Ryse: Son of Rome – La brutalité romaine au service du spectacle</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/films-tests-et-avis-de-jeux-video/test-critique-de-mass-effect-2-legendary-edition-le-sommet-du-rpg-narratif-spatial</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Mass_Effect_2_Legendary_GamingHub_71bdf370-84a8-4be8-8667-c622f26b3ca2.jpg?v=1769174062</image:loc>
+      <image:title>Test &amp; Critique de Mass Effect 2 Legendary Edition – Le sommet du RPG narratif spatial</image:title>
+      <image:caption>Test &amp; Critique de Mass Effect 2 Legendary Edition – Le sommet du RPG narratif spatial</image:caption>
     </image:image>
   </url>
   <url>
@@ -895,6 +903,30 @@
       <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Phantom_Blade_Zero_Official_Picture_-_GamingHub_4b1d8cce-616c-4e51-9b70-18f5ac38e484.jpg?v=1767876845</image:loc>
       <image:title>Visuel Officiel du Jeu Phantom Blade Zéro</image:title>
       <image:caption>Phantom Blade Zéro</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/deus-ex-remastered</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Deus_Ex_Remastered_GamingHub_b30cc847-f20a-4de8-beb5-7f5f10ade66f.jpg?v=1769164625</image:loc>
+      <image:title>Visuel Officiel du Jeu Deus Ex Remastered</image:title>
+      <image:caption>Deus Ex Remastered</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/tomb-raider-legacy-of-atlantis</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Tomb_Raider_legacy_of_Atlantis_GamingHub.jpg?v=1769170175</image:loc>
+      <image:title>Visuel du Jeu Tomb Raider: Legacy of Atlantis</image:title>
+      <image:caption>Tomb Raider: Legacy of Atlantis</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/fable</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Fable_GamingHub_a4735adc-4bff-4f76-a8ac-4a81053de9ba.jpg?v=1769172141</image:loc>
+      <image:title>Visuel du Jeu Fable</image:title>
+      <image:caption>Fable</image:caption>
     </image:image>
   </url>
   <url>
@@ -1090,6 +1122,21 @@
       <image:loc>https://{"text":"Visuel Phantom Blade Zéro","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Phantom_Blade_Zero_-_GamingHub.jpg?v=1767360994"}</image:loc>
       <image:title>Phantom Blade Zéro</image:title>
       <image:caption>Phantom Blade Zéro</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel Deus Ex Remastered","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Deus_Ex_Remastered_-_GamingHub.jpg?v=1769162830"}</image:loc>
+      <image:title>Deus Ex Remastered</image:title>
+      <image:caption>Deus Ex Remastered</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel Tomb Raider Legacy","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Tomb_Raider_Legacy_of_Atlantis-_GamingHub.jpg?v=1769169211"}</image:loc>
+      <image:title>Tomb Raider Legacy</image:title>
+      <image:caption>Tomb Raider Legacy</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel Fable","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Fable_-_GamingHub.jpg?v=1769169211"}</image:loc>
+      <image:title>Fable</image:title>
+      <image:caption>Fable</image:caption>
     </image:image>
   </url>
 </urlset>
