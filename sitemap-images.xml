@@ -1058,6 +1058,46 @@
     </image:image>
   </url>
   <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/resident-evil-code-veronica-remake</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Resident_Evil_Code_Veronica_GamingHub.jpg?v=1781178594</image:loc>
+      <image:title>Visuel du Jeu Resident Evil: Veronica</image:title>
+      <image:caption>Resident Evil: Code Veronica Remake</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/metro-2039</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/714773_69e0d2362fd11.jpg?v=1781179677</image:loc>
+      <image:title>Visuel du jeu Metro 2039</image:title>
+      <image:caption>Metro 2039</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/monster-hunter-wilds-ascendance</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Monster_Hunter_Wilds_Ascendance_GamingHub_6ed9073b-7d9e-42ca-a4bd-0a20621e15fb.jpg?v=1781181026</image:loc>
+      <image:title>Visuel du Jeu Monster Hunter Wilds: Ascendance</image:title>
+      <image:caption>Monster Hunter Wilds: Ascendance</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/visuel-du-jeu-blood-message</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Blood_Message_GamingHub.jpg?v=1781183630</image:loc>
+      <image:title>Visuel du Jeu Blood Message</image:title>
+      <image:caption>Visuel du Jeu Blood Message</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/visuel-du-jeu-wolf-among-us-2</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Wolf_Among_Us_2_GamingHub.jpg?v=1781184851</image:loc>
+      <image:title>Visuel du Jeu Wolf Among Us 2</image:title>
+      <image:caption>Visuel du Jeu Wolf Among Us 2</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://gaming-hub.fr/blogs/editeurs-de-jeux-videos/capcom</loc>
     <image:image>
       <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Logo_Capcom_e89595ca-4e47-42fd-a3ce-25403eaa622d.jpg?v=1761227339</image:loc>
@@ -1313,6 +1353,31 @@
       <image:loc>https://{"text":"Visuel du Jeu Silent Hill Townfall","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/silent_hill_townfall_-_GamingHub.jpg?v=1781107088"}</image:loc>
       <image:title>Silent Hill Townfall</image:title>
       <image:caption>Silent Hill Townfall</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel du Jeu Resident Evil: Veronica","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Resident_Evil_Code_Veronica_-_GamingHub.jpg?v=1781178034"}</image:loc>
+      <image:title>Resident Evil: Veronica</image:title>
+      <image:caption>Resident Evil: Veronica</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel du Jeu Metro 2039","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Metro_2039_-_GamingHub.jpg?v=1781179072"}</image:loc>
+      <image:title>Metro 2039</image:title>
+      <image:caption>Metro 2039</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel du Jeu Monster Hunter Ascendance","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Monster_Hunter_Wilds_Ascendance_-_GamingHub.jpg?v=1781180811"}</image:loc>
+      <image:title>Monster Hunter Ascendance</image:title>
+      <image:caption>Monster Hunter Ascendance</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel du Jeu Blood Message","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Blood_Message_-_GamingHub.jpg?v=1781182501"}</image:loc>
+      <image:title>Blood Message</image:title>
+      <image:caption>Blood Message</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel du Jeu Wolf Among Us 2","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Wolf_Among_Us_2_-_GamingHub.jpg?v=1781184062"}</image:loc>
+      <image:title>Wolf Among Us 2</image:title>
+      <image:caption>Wolf Among Us 2</image:caption>
     </image:image>
   </url>
 </urlset>
