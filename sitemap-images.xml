@@ -1098,6 +1098,14 @@
     </image:image>
   </url>
   <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/until-dawn-2</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Until_Dawn_2_GamingHub.jpg?v=1781276127</image:loc>
+      <image:title>Visuel Du Jeu Until Dawn 2</image:title>
+      <image:caption>Until Dawn 2</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://gaming-hub.fr/blogs/editeurs-de-jeux-videos/capcom</loc>
     <image:image>
       <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Logo_Capcom_e89595ca-4e47-42fd-a3ce-25403eaa622d.jpg?v=1761227339</image:loc>
@@ -1378,6 +1386,11 @@
       <image:loc>https://{"text":"Visuel du Jeu Wolf Among Us 2","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Wolf_Among_Us_2_-_GamingHub.jpg?v=1781184062"}</image:loc>
       <image:title>Wolf Among Us 2</image:title>
       <image:caption>Wolf Among Us 2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel du Jeu Until Dawn 2","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Until_Dawn_2_-_GamingHub.jpg?v=1781275876"}</image:loc>
+      <image:title>Until Dawn 2</image:title>
+      <image:caption>Until Dawn 2</image:caption>
     </image:image>
   </url>
 </urlset>
