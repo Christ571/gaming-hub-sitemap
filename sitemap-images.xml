@@ -1122,6 +1122,14 @@
     </image:image>
   </url>
   <url>
+    <loc>https://gaming-hub.fr/blogs/calendrier-des-sorties-de-jeux-video/resonance</loc>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Visuel_Du_Jeu_Resonance_GamingHub_295c60f7-9e48-4459-825e-97841a4db322.jpg?v=1784036891</image:loc>
+      <image:title>Visuel du Jeu Resonance</image:title>
+      <image:caption>Resonance</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://gaming-hub.fr/blogs/editeurs-de-jeux-videos/capcom</loc>
     <image:image>
       <image:loc>https://cdn.shopify.com/s/files/1/0859/8490/3494/articles/Logo_Capcom_e89595ca-4e47-42fd-a3ce-25403eaa622d.jpg?v=1761227339</image:loc>
@@ -1274,7 +1282,7 @@
       <image:caption>007 First Light</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://{"text":"Visuel GTA 6","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Visuel_Du_Jeu_Grand_Theft_Auto_VI_GamingHub.jpg?v=1782392163"}</image:loc>
+      <image:loc>https://{"text":"Visuel GTA 6","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/GTA_6_-_GamingHub.jpg?v=1760353438"}</image:loc>
       <image:title>Grand Theft Auto 6</image:title>
       <image:caption>Grand Theft Auto 6</image:caption>
     </image:image>
@@ -1407,6 +1415,11 @@
       <image:loc>https://{"text":"Visuel du Jeu Until Dawn 2","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Until_Dawn_2_-_GamingHub.jpg?v=1781275876"}</image:loc>
       <image:title>Until Dawn 2</image:title>
       <image:caption>Until Dawn 2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://{"text":"Visuel Resonance","url":"https://cdn.shopify.com/s/files/1/0859/8490/3494/files/Resonance_A_plague_Tale_Legacy_-_GamingHub.jpg?v=1784032799"}</image:loc>
+      <image:title>Resonance</image:title>
+      <image:caption>Resonance</image:caption>
     </image:image>
   </url>
 </urlset>
